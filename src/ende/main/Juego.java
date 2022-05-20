@@ -1,19 +1,20 @@
+package ende.ende.main;
 import ende.ende.modelo.Jugador;
 
 /**
  * Simula el juego de Piedra, Papel o tijera
  */
 public class Juego {
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         Jugador p1 = new Jugador();
         Jugador p2 = new Jugador();
         boolean finDeJuego = false;
         // Número de rondas jugadas
-        Integer rondasJugadas = 0;
-        Integer exitosJugador1 = p1.getExitos();
-        Integer exitosJugador2 = p2.getExitos();
-        Integer empates = 0;
+        int rondasJugadas = 0;
+        int exitosJugador1 = p1.getExitos();
+        int exitosJugador2 = p2.getExitos();
+        int empates = 0;
         String opcionJugador1;
         String opcionJugador2;
         
@@ -57,7 +58,7 @@ public class Juego {
             	exitosJugador2 = ++p2.exitos;
                 System.out.println("Jugador 2 GANA");
             }
-            if(opcionJugador1==opcionJugador2)
+            if(opcionJugador1.equals(opcionJugador2))
             {
             	empates++;
                 System.out.println("\n\t\t\t Empate \n");
@@ -69,6 +70,6 @@ public class Juego {
                 System.out.println("FIN DEL JUEGO!!");
             }
             System.out.println();
-        } while(finDeJuego != true);
+        } while(!finDeJuego);
     }
 }
