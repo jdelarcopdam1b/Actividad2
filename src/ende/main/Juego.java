@@ -1,4 +1,4 @@
-package ende;
+import ende.ende.modelo.Jugador;
 
 /**
  * Simula el juego de Piedra, Papel o tijera
@@ -11,8 +11,8 @@ public class Juego {
         boolean finDeJuego = false;
         // Número de rondas jugadas
         Integer rondasJugadas = 0;
-        Integer exitosJugador1 = p1.exitos;
-        Integer exitosJugador2 = p2.exitos;
+        Integer exitosJugador1 = p1.getExitos();
+        Integer exitosJugador2 = p2.getExitos();
         Integer empates = 0;
         String opcionJugador1;
         String opcionJugador2;
@@ -31,7 +31,6 @@ public class Juego {
             {
                 System.out.println("Jugador 2 GANA");
                 exitosJugador2 = ++p2.exitos;
-                
             }
             else if((opcionJugador1.equals("papel"))&&(opcionJugador2.equals("piedra")))
             {
@@ -64,7 +63,7 @@ public class Juego {
                 System.out.println("\n\t\t\t Empate \n");
             }
             rondasJugadas++;
-            if((p1.exitos >=3)||(p2.exitos >=3))
+            if((p1.getExitos() >=3)||(p2.getExitos() >=3))
             {
             	finDeJuego=true;
                 System.out.println("FIN DEL JUEGO!!");
@@ -72,42 +71,4 @@ public class Juego {
             System.out.println();
         } while(finDeJuego != true);
     }
-}
-/**
- *
- */
-class Jugador {
-
-    // número de partidas ganadas
-    int exitos;
-    int winTotal;
-
-    /**
-     * Escoge piedra, papel o tijera al azar
-     */
-    public String opcion_al_azar()
-    {
-        String opcion = "";
-        Integer c = (int)(Math.random()*3);
-        switch(c){
-            case 0:
-            	opcion = ("piedra");
-                break;
-            case 1:
-            	opcion = ("papel");
-                break;
-            case 2:
-            	opcion = ("tijeras");
-        }
-        return opcion;
-    }
-    public void setExitos()
-    {
-        exitos++;
-    }
-    public int getExitos()
-    {
-        return(exitos);
-    }
-
 }
